@@ -25,7 +25,14 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 
 
-builder.Services.AddSwaggerGen();
+//builder.Services.AddSwaggerGen();
+
+builder.Services.AddSwaggerGen(c => {
+    c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+    //c.IgnoreObsoleteActions();
+    //c.IgnoreObsoleteProperties();
+    //c.CustomSchemaIds(type => type.FullName);
+});
 
 var app = builder.Build();
 
@@ -33,7 +40,10 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Book API");
+    });
 }
 
 app.UseHttpsRedirection();
