@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/0.5.7-alpha">
   <PropertyGroup Label="Globals">
-    <ProjectGuid>8e04dbce-55af-41ff-8b82-be82a2f6c3ac</ProjectGuid>
+    <ProjectGuid>0885c7b6-525d-436e-9639-575dcd9daa2b</ProjectGuid>
   </PropertyGroup>
   <PropertyGroup>
     <StartupCommand>set BROWSER=none&amp;&amp;npm start</StartupCommand>
