@@ -16,21 +16,20 @@ function App() {
         <BrowserRouter>
             <div className="container">
 
+                <h2 className="m-3 d-flex justify-content-center">
+                    Reading List
+                </h2>
 
-                <Navbar bg="primary" variant="dark">
+                <Navbar bg="primary" variant="light">
                     <Container>
                         <Navbar.Brand href="/">ReadingList</Navbar.Brand>
-                        <Nav className="me-auto">
+                        <Nav className="justify-content-end flex-grow-1 pe-3">
                             <Nav.Link href="/">Home</Nav.Link>
                             <Nav.Link href="/book">Book</Nav.Link>
                             <Nav.Link href="/category">Category</Nav.Link>
                         </Nav>
                     </Container>
                 </Navbar>
-
-                <h2 className="m-3 d-flex justify-content-center">
-                    Reading List
-                </h2>
 
                 <Routes>
                     <Route path='/' element={<Home/>} exact />

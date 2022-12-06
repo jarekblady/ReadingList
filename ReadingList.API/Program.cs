@@ -23,8 +23,6 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IBookService, BookService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 
-
-
 //builder.Services.AddSwaggerGen();
 
 builder.Services.AddSwaggerGen(c => {
@@ -33,6 +31,16 @@ builder.Services.AddSwaggerGen(c => {
     //c.IgnoreObsoleteProperties();
     //c.CustomSchemaIds(type => type.FullName);
 });
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "ReactJSDomain",
+    policy => policy.WithOrigins("https://localhost:3000")
+    .AllowAnyHeader()
+    .AllowAnyMethod());
+});
+
+
 
 var app = builder.Build();
 
@@ -47,6 +55,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("ReactJSDomain");
 
 app.UseAuthorization();
 

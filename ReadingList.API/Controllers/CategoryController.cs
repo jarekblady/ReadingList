@@ -19,10 +19,10 @@ namespace ReadingList.API.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<CategoryViewModel>> GetAllCategory()
         {
-            var model = new CategoryViewModel();
-            model.Categories = _categoryService.GetAllCategory();
+            //var model = new CategoryViewModel();
+            //model.Categories = _categoryService.GetAllCategory();
 
-            return Ok(model);
+            return Ok(_categoryService.GetAllCategory());
         }
 
         [HttpGet("{id}")]
