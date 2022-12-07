@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
 
-//import { Button, ButtonToolbar } from 'react-bootstrap';
+import { Button, ButtonToolbar } from 'react-bootstrap';
+import { AddCategoryModal } from './AddCategoryModal';
 
 export class Category extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { categories: []}
+        this.state = { categories: [], addModalShow: false}
     }
 
     componentDidMount() {
@@ -22,6 +23,9 @@ export class Category extends Component {
             }
             );
     }
+    componentDidUpdate() {
+        this.refreshList();
+    }
 
     /*
     refreshList() {
@@ -35,7 +39,9 @@ export class Category extends Component {
 
 
     render() {
-        const { categories} = this.state
+
+        const { categories } = this.state;
+        let addModalClose = () => this.setState({ addModalShow: false });
         
         return (
             <div>
@@ -55,6 +61,21 @@ export class Category extends Component {
                         )}
                     </tbody>
                 </Table>
+
+
+
+                <ButtonToolbar>
+                    <Button
+                        variant='primary'
+                        onClick={() => this.setState({ addModalShow: true })}
+                    >Add Category</Button>
+
+                    <AddCategoryModal
+                        show={this.state.addModalShow}
+                        onHide={addModalClose}
+                    />
+
+                </ButtonToolbar>
             </div>
         )
     }

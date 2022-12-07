@@ -28,10 +28,10 @@ namespace ReadingList.API.Controllers
         [HttpGet("{id}")]
         public ActionResult<CategoryViewModel> GetCategory(/*[FromRoute]*/ int id)
         {
-            var model = new CategoryViewModel();
-            model.Category = _categoryService.GetByIdCategory(id);
+            //var model = new CategoryViewModel();
+            //model.Category = _categoryService.GetByIdCategory(id);
 
-            return Ok(model);
+            return Ok(_categoryService.GetByIdCategory(id));
 
         }
 
@@ -40,11 +40,11 @@ namespace ReadingList.API.Controllers
         {
             var dto = new CategoryDto()
             {
-                Name = model.Category.Name,
+                Name = model.Name,
             };
             _categoryService.CreateCategory(dto);
 
-            return Ok(model);
+            return Ok("Success");
         }
 
         [HttpPut("{id}")]
@@ -52,9 +52,9 @@ namespace ReadingList.API.Controllers
         {
             var dto = new CategoryDto()
             {
-                Id = model.Category.Id,
+                Id = model.Id,
                 //Id = id,
-                Name = model.Category.Name,
+                Name = model.Name,
             };
 
             _categoryService.UpdateCategory(dto);

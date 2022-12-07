@@ -19,19 +19,19 @@ namespace ReadingList.API.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<BookViewModel>> GetAllBook()
         {
-            var model = new BookViewModel();
-            model.Books = _bookService.GetAllBook();
+            //var model = new BookViewModel();
+            //model.Books = _bookService.GetAllBook();
 
-            return Ok(model);
+            return Ok(_bookService.GetAllBook());
         }
 
         [HttpGet("{id}")]
         public ActionResult<BookViewModel> GetBook(/*[FromRoute]*/ int id)
         {
-            var model = new BookViewModel();
-            model.Book = _bookService.GetByIdBook(id);
+            //var model = new BookViewModel();
+            //model.Book = _bookService.GetByIdBook(id);
 
-            return Ok(model);
+            return Ok(_bookService.GetByIdBook(id));
 
         }
 
@@ -40,12 +40,12 @@ namespace ReadingList.API.Controllers
         {
             var dto = new BookDto()
             {
-                Title = model.Book.Title,
-                Author = model.Book.Author,
-                Year = model.Book.Year,
-                IsRead = model.Book.IsRead,
-                IsPriority = model.Book.IsPriority,
-                CategoryId = model.Book.CategoryId,
+                Title = model.Title,
+                Author = model.Author,
+                Year = model.Year,
+                IsRead = model.IsRead,
+                IsPriority = model.IsPriority,
+                CategoryId = model.CategoryId,
             };
             _bookService.CreateBook(dto);
 
@@ -57,14 +57,14 @@ namespace ReadingList.API.Controllers
         {
             var dto = new BookDto()
             {
-                Id = model.Book.Id,
+                Id = model.Id,
                 //Id = id,
-                Title = model.Book.Title,
-                Author = model.Book.Author,
-                Year = model.Book.Year,
-                IsRead = model.Book.IsRead,
-                IsPriority = model.Book.IsPriority,
-                CategoryId = model.Book.CategoryId,
+                Title = model.Title,
+                Author = model.Author,
+                Year = model.Year,
+                IsRead = model.IsRead,
+                IsPriority = model.IsPriority,
+                CategoryId = model.CategoryId,
             };
 
             _bookService.UpdateBook(dto);
