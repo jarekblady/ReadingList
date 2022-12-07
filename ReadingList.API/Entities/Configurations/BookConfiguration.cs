@@ -13,11 +13,7 @@ namespace ReadingList.API.Entities.Configurations
             builder.Property(b => b.Author)
                 .IsRequired()
                 .HasMaxLength(25);
-            builder.Property(b => b.Year)
-                .IsRequired();
             builder.Property(b => b.IsRead)
-                .IsRequired();
-            builder.Property(b => b.IsPriority)
                 .IsRequired();
             builder.HasOne(b => b.Category)
                 .WithMany(c => c.Books)

@@ -42,9 +42,7 @@ namespace ReadingList.API.Controllers
             {
                 Title = model.Title,
                 Author = model.Author,
-                Year = model.Year,
                 IsRead = model.IsRead,
-                IsPriority = model.IsPriority,
                 CategoryId = model.CategoryId,
             };
             _bookService.CreateBook(dto);
@@ -61,9 +59,7 @@ namespace ReadingList.API.Controllers
                 //Id = id,
                 Title = model.Title,
                 Author = model.Author,
-                Year = model.Year,
                 IsRead = model.IsRead,
-                IsPriority = model.IsPriority,
                 CategoryId = model.CategoryId,
             };
 

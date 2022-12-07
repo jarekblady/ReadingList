@@ -38,9 +38,7 @@ namespace ReadingList.API.Services.BookService
             {
                 Title = dto.Title,
                 Author = dto.Author,
-                Year = dto.Year,
                 IsRead = dto.IsRead,
-                IsPriority = dto.IsPriority,
                 CategoryId = dto.CategoryId,
             };
             _bookRepository.CreateBook(book);
@@ -53,9 +51,7 @@ namespace ReadingList.API.Services.BookService
                 Id = dto.Id,
                 Title = dto.Title,
                 Author = dto.Author,
-                Year = dto.Year,
                 IsRead = dto.IsRead,
-                IsPriority = dto.IsPriority,
                 CategoryId = dto.CategoryId,
             };
             _bookRepository.UpdateBook(book);
