@@ -59,7 +59,7 @@ namespace ReadingList.API.Controllers
 
             _categoryService.UpdateCategory(dto);
 
-            return Ok();
+            return Ok("Success");
         }
 
 
