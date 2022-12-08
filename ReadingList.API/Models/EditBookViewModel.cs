@@ -2,7 +2,7 @@
 
 namespace ReadingList.API.Models
 {
-    public class BookViewModel
+    public class EditBookViewModel
     {
         //public List<BookDto> Books { get; set; }
         //public BookDto Book { get; set; }
@@ -11,6 +11,6 @@ namespace ReadingList.API.Models
         public string Author { get; set; }
         //public bool IsRead { get; set; }
         public int CategoryId { get; set; }
-        public string CategoryName { get; set; }
+        //public string CategoryName { get; set; }
     }
 }

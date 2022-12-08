@@ -34,20 +34,13 @@ namespace ReadingList.API.Services.CategoryService
 
         public void CreateCategory(CategoryDto dto)
         {
-            var category = new Category()
-            {
-                Name = dto.Name,
-            };
+            var category = _mapper.Map<Category>(dto);
             _categoryRepository.CreateCategory(category);
         }
 
         public void UpdateCategory(CategoryDto dto)
         {
-            var category = new Category()
-            {
-                Id = dto.Id,
-                Name = dto.Name,
-            };
+            var category = _mapper.Map<Category>(dto);
             _categoryRepository.UpdateCategory(category);
         }
 

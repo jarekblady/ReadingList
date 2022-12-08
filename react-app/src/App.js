@@ -20,21 +20,21 @@ function App() {
                     Reading List
                 </h2>
 
-                <Navbar bg="primary" variant="light">
+                <Navbar bg="secondary" variant="light">
                     <Container>
                         <Navbar.Brand href="/Home">ReadingList</Navbar.Brand>
                         <Nav className="justify-content-end flex-grow-1 pe-3">
-                            <Nav.Link href="/Home">Home</Nav.Link>
-                            <Nav.Link href="/Book">Book</Nav.Link>
-                            <Nav.Link href="/Category">Category</Nav.Link>
+                            <Nav.Link className='btn btn-primary btn-outline-info' href="/Home">Home</Nav.Link>
+                            <Nav.Link className='btn btn-primary btn-outline-info' href="/Book">Book</Nav.Link>
+                            <Nav.Link className='btn btn-primary btn-outline-info' href="/Category">Category</Nav.Link>
                         </Nav>
                     </Container>
                 </Navbar>
 
                 <Routes>
-                    <Route path='/Home' element={<Home/>} />
-                    <Route path='/Book' element={<Book/>} />
-                    <Route path='/Category' element={<Category/>} />
+                    <Route path='/Home' element={<Home />} />
+                    <Route path='/Book' element={<Book />} />
+                    <Route path='/Category' element={<Category />} />
                 </Routes>
 
             </div>

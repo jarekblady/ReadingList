@@ -36,18 +36,18 @@ namespace ReadingList.API.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateBook(/*[FromBody]*/ BookViewModel model)
+        public ActionResult CreateBook(/*[FromBody]*/ EditBookViewModel model)
         {
             var dto = new BookDto()
             {
                 Title = model.Title,
                 Author = model.Author,
-                IsRead = model.IsRead,
+                //IsRead = model.IsRead,
                 CategoryId = model.CategoryId,
             };
             _bookService.CreateBook(dto);
 
-            return Ok(model);
+            return Ok("Success");
         }
 
         [HttpPut("{id}")]
@@ -59,13 +59,13 @@ namespace ReadingList.API.Controllers
                 //Id = id,
                 Title = model.Title,
                 Author = model.Author,
-                IsRead = model.IsRead,
+                //IsRead = model.IsRead,
                 CategoryId = model.CategoryId,
             };
 
             _bookService.UpdateBook(dto);
 
-            return Ok(model);
+            return Ok("Success");
         }
 
 

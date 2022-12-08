@@ -34,26 +34,13 @@ namespace ReadingList.API.Services.BookService
 
         public void CreateBook(BookDto dto)
         {
-            var book = new Book()
-            {
-                Title = dto.Title,
-                Author = dto.Author,
-                IsRead = dto.IsRead,
-                CategoryId = dto.CategoryId,
-            };
+            var book = _mapper.Map<Book>(dto);
             _bookRepository.CreateBook(book);
         }
 
         public void UpdateBook(BookDto dto)
         {
-            var book = new Book()
-            {
-                Id = dto.Id,
-                Title = dto.Title,
-                Author = dto.Author,
-                IsRead = dto.IsRead,
-                CategoryId = dto.CategoryId,
-            };
+            var book = _mapper.Map<Book>(dto);
             _bookRepository.UpdateBook(book);
         }
 
