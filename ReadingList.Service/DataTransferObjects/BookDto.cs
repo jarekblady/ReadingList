@@ -1,11 +1,7 @@
-﻿using ReadingList.Service.DataTransferObjects;
-
-namespace ReadingList.API.Models
+﻿namespace ReadingList.Service.DataTransferObjects
 {
-    public class BookViewModel
+    public class BookDto
     {
-        //public List<BookDto> Books { get; set; }
-        //public BookDto Book { get; set; }
         public int Id { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }

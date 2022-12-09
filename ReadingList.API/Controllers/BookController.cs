@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ReadingList.API.DataTransferObjects;
+using ReadingList.Service.DataTransferObjects;
 using ReadingList.API.Models;
-using ReadingList.API.Services.BookService;
+using ReadingList.Service.Services.BookService;
 
 namespace ReadingList.API.Controllers
 {

@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using ReadingList.API.Entities;
-using ReadingList.API.Repositories.BookRepository;
-using ReadingList.API.Repositories.CategoryRepository;
-using ReadingList.API.Services.BookService;
-using ReadingList.API.Services.CategoryService;
+using ReadingList.Repository.Context;
+using ReadingList.Repository.Repositories.BookRepository;
+using ReadingList.Repository.Repositories.CategoryRepository;
+using ReadingList.Service.Services.BookService;
+using ReadingList.Service.Services.CategoryService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +15,8 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddDbContext<BookDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("BookConnectionString")));
 
-builder.Services.AddAutoMapper(typeof(Program).Assembly);
+//builder.Services.AddAutoMapper(typeof(Program).Assembly);
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddScoped<IBookRepository, BookRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();

@@ -1,4 +1,4 @@
-﻿using ReadingList.API.DataTransferObjects;
+﻿using ReadingList.Service.DataTransferObjects;
 
 namespace ReadingList.API.Models
 {
