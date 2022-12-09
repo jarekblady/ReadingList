@@ -14,8 +14,8 @@ namespace ReadingList.Repository.EntityConfigurations
             builder.Property(b => b.Author)
                 .IsRequired()
                 .HasMaxLength(25);
-            //builder.Property(b => b.IsRead)
-            //   .IsRequired();
+            builder.Property(b => b.IsRead)
+               .IsRequired();
             builder.Property(b => b.Order)
                .IsRequired();
             builder.HasOne(b => b.Category)

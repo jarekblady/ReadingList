@@ -32,6 +32,7 @@ export class EditBookModal extends Component {
                 title: event.target.title.value,
                 author: event.target.author.value,
                 categoryId: event.target.categoryId.value,
+                isRead: event.target.isRead.checked,
                 categoryName: "",
 
 
@@ -109,6 +110,15 @@ export class EditBookModal extends Component {
                                             required
                                             defaultValue={this.props.author}
                                             placeholder="author"
+                                        />
+                                    </Form.Group>
+
+                                    <Form.Group controlId="isRead">
+                                        <Form.Check
+                                            type="checkbox"
+                                            label="isRead"
+                                            defaultChecked={this.props.isread}
+
                                         />
                                     </Form.Group>
 

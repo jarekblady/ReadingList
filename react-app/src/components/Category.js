@@ -28,15 +28,6 @@ export class Category extends Component {
         this.refreshList();
     }
 
-    /*
-    refreshList() {
-        this.setState({
-            categories: [{ "Id": 1, "Name": "Horror" },
-                { "Id": 2, "Name": "Science-fiction" }
-            ]
-        })
-    }
-    */
 
     deleteCategory(id) {
         if (window.confirm('Are you sure?')) {
@@ -64,7 +55,6 @@ export class Category extends Component {
                 <Table className="mt-4" striped bordered hover size="sm">
                     <thead>
                         <tr>
-                            <th>Id</th>
                             <th>Name</th>
                             <th>Options</th>
                         </tr>
@@ -72,7 +62,6 @@ export class Category extends Component {
                     <tbody>
                         {categories.map(category =>
                             <tr key={category.id}>
-                                <td>{category.id}</td>
                                 <td>{category.name}</td>
                                 <td>
                                     <ButtonToolbar>

@@ -45,7 +45,7 @@ export class Book extends Component {
 
     render() {
 
-        const { books, id, order, title, author, categoryid } = this.state;
+        const { books, id, order, title, author, categoryid, isread } = this.state;
         let addModalClose = () => this.setState({ addModalShow: false });
         let editModalClose = () => this.setState({ editModalShow: false });
 
@@ -59,6 +59,7 @@ export class Book extends Component {
                             <th>Title</th>
                             <th>Author</th>
                             <th>Category</th>
+                            <th>IsRead</th>
                             <th>Options</th>
                         </tr>
                     </thead>
@@ -69,11 +70,14 @@ export class Book extends Component {
                                 <td>{book.title}</td>
                                 <td>{book.author}</td>
                                 <td>{book.categoryName}</td>
+                                <td>                                   
+                                        <input class="form-check-input" type="checkbox" checked={book.isRead} disabled />   
+                                </td>
                                 <td>
                                     <ButtonToolbar>
                                         <Button
                                             className="mr-2" variant="info"
-                                            onClick={() => this.setState({ editModalShow: true, id: book.id, order: book.order, title: book.title, author: book.author, categoryid: book.categoryId })}
+                                            onClick={() => this.setState({ editModalShow: true, id: book.id, order: book.order, isread: book.isRead, title: book.title, author: book.author, categoryid: book.categoryId })}
                                         >Edit</Button>
 
                                         <Button className="mr-2"
@@ -88,6 +92,7 @@ export class Book extends Component {
                                             order={order}
                                             title={title}
                                             author={author}
+                                            isread={isread}
                                             categoryid={categoryid}
 
                                         />

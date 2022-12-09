@@ -19,8 +19,6 @@ namespace ReadingList.API.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<BookViewModel>> GetAllBook()
         {
-            //var model = new BookViewModel();
-            //model.Books = _bookService.GetAllBook();
 
             return Ok(_bookService.GetAllBook());
         }
@@ -28,8 +26,6 @@ namespace ReadingList.API.Controllers
         [HttpGet("{id}")]
         public ActionResult<BookViewModel> GetBook(/*[FromRoute]*/ int id)
         {
-            //var model = new BookViewModel();
-            //model.Book = _bookService.GetByIdBook(id);
 
             return Ok(_bookService.GetByIdBook(id));
 
@@ -42,7 +38,7 @@ namespace ReadingList.API.Controllers
             {
                 Title = model.Title,
                 Author = model.Author,
-                //IsRead = model.IsRead,
+                IsRead = model.IsRead,
                 Order = model.Order,
                 CategoryId = model.CategoryId,
             };
@@ -60,7 +56,7 @@ namespace ReadingList.API.Controllers
                 //Id = id,
                 Title = model.Title,
                 Author = model.Author,
-                //IsRead = model.IsRead,
+                IsRead = model.IsRead,
                 Order = model.Order,
                 CategoryId = model.CategoryId,
             };

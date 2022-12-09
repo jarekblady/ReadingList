@@ -30,6 +30,7 @@ export class AddBookModal extends Component {
                 title: event.target.title.value,
                 author: event.target.author.value,
                 categoryId: event.target.categoryId.value,
+                isRead: event.target.isRead.checked,
                 categoryName: "",
             })
         })
@@ -90,6 +91,13 @@ export class AddBookModal extends Component {
                                             name="author"
                                             required
                                             placeholder="author"
+                                        />
+                                    </Form.Group>
+
+                                    <Form.Group controlId="isRead">
+                                        <Form.Check
+                                            type="checkbox"
+                                            label="isRead"
                                         />
                                     </Form.Group>
 
