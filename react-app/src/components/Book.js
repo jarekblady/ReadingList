@@ -45,7 +45,7 @@ export class Book extends Component {
 
     render() {
 
-        const { books, id, title, author, categoryid } = this.state;
+        const { books, id, order, title, author, categoryid } = this.state;
         let addModalClose = () => this.setState({ addModalShow: false });
         let editModalClose = () => this.setState({ editModalShow: false });
 
@@ -55,7 +55,7 @@ export class Book extends Component {
                 <Table className="mt-4" striped bordered hover size="sm">
                     <thead>
                         <tr>
-                            <th>Id</th>
+                            <th>Order</th>
                             <th>Title</th>
                             <th>Author</th>
                             <th>Category</th>
@@ -65,7 +65,7 @@ export class Book extends Component {
                     <tbody>
                         {books.map(book =>
                             <tr key={book.id}>
-                                <td>{book.id}</td>
+                                <td>{book.order}</td>
                                 <td>{book.title}</td>
                                 <td>{book.author}</td>
                                 <td>{book.categoryName}</td>
@@ -73,7 +73,7 @@ export class Book extends Component {
                                     <ButtonToolbar>
                                         <Button
                                             className="mr-2" variant="info"
-                                            onClick={() => this.setState({ editModalShow: true, id: book.id, title: book.title, author: book.author, categoryid: book.categoryId })}
+                                            onClick={() => this.setState({ editModalShow: true, id: book.id, order: book.order, title: book.title, author: book.author, categoryid: book.categoryId })}
                                         >Edit</Button>
 
                                         <Button className="mr-2"
@@ -85,6 +85,7 @@ export class Book extends Component {
                                             show={this.state.editModalShow}
                                             onHide={editModalClose}
                                             id={id}
+                                            order={order}
                                             title={title}
                                             author={author}
                                             categoryid={categoryid}

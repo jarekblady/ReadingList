@@ -28,9 +28,11 @@ export class EditBookModal extends Component {
             },
             body: JSON.stringify({
                 id: event.target.id.value,
+                order: event.target.order.value,
                 title: event.target.title.value,
                 author: event.target.author.value,
                 categoryId: event.target.categoryId.value,
+                categoryName: "",
 
 
             })
@@ -76,6 +78,15 @@ export class EditBookModal extends Component {
                                             disabled
                                             defaultValue={this.props.id}
                                             placeholder="id"
+                                        />
+                                    </Form.Group>
+
+                                    <Form.Group controlId="order">
+                                        <Form.Label>order</Form.Label>
+                                        <Form.Control
+                                            type="number"
+                                            required
+                                            defaultValue={this.props.order}
                                         />
                                     </Form.Group>
 

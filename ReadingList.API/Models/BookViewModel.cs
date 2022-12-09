@@ -10,6 +10,7 @@ namespace ReadingList.API.Models
         public string Title { get; set; }
         public string Author { get; set; }
         //public bool IsRead { get; set; }
+        public int Order { get; set; }
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
     }

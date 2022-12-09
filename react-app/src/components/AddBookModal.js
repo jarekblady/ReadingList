@@ -26,9 +26,11 @@ export class AddBookModal extends Component {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
+                order: event.target.order.value,
                 title: event.target.title.value,
                 author: event.target.author.value,
-                categoryId: event.target.categoryId.value
+                categoryId: event.target.categoryId.value,
+                categoryName: "",
             })
         })
             .then(res => res.json())
@@ -62,6 +64,14 @@ export class AddBookModal extends Component {
                         <Row>
                             <Col sm={6}>
                                 <Form onSubmit={this.handleSubmit}>
+
+                                    <Form.Group controlId="order">
+                                        <Form.Label>order</Form.Label>
+                                        <Form.Control
+                                            type="number"
+                                            required
+                                        />
+                                    </Form.Group>
 
                                     <Form.Group controlId="title">
                                         <Form.Label>title</Form.Label>
