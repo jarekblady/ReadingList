@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using ReadingList.Repository;
 using ReadingList.Repository.Context;
 using ReadingList.Repository.Repositories.BookRepository;
 using ReadingList.Repository.Repositories.CategoryRepository;
@@ -53,6 +54,21 @@ if (app.Environment.IsDevelopment())
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "Book API");
     });
+}
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var context = services.GetRequiredService<BookDbContext>();
+        DbInitializer.Initialize(context);
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "An error occurred creating the DB.");
+    }
 }
 
 app.UseHttpsRedirection();
