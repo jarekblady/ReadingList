@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
-using ReadingList.API.Models;
+using ReadingList.Service.DataTransferObjects;
 
 namespace ReadingList.API.Validators
 {
-    public class BookValidator : AbstractValidator<BookViewModel>
+    public class BookValidator : AbstractValidator<BookDto>
     {
         public BookValidator()
         {

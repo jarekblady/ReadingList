@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ReadingList.Service.DataTransferObjects;
-using ReadingList.API.Models;
 using ReadingList.Service.Services.CategoryService;
 
 namespace ReadingList.API.Controllers
@@ -17,45 +16,31 @@ namespace ReadingList.API.Controllers
 
 
         [HttpGet]
-        public ActionResult<IEnumerable<CategoryViewModel>> GetAllCategory()
+        public ActionResult<IEnumerable<CategoryDto>> GetAllCategory()
         {
-            //var model = new CategoryViewModel();
-            //model.Categories = _categoryService.GetAllCategory();
 
             return Ok(_categoryService.GetAllCategory());
         }
 
         [HttpGet("{id}")]
-        public ActionResult<CategoryViewModel> GetCategory(/*[FromRoute]*/ int id)
+        public ActionResult<CategoryDto> GetCategory(int id)
         {
-            //var model = new CategoryViewModel();
-            //model.Category = _categoryService.GetByIdCategory(id);
 
             return Ok(_categoryService.GetByIdCategory(id));
 
         }
 
         [HttpPost]
-        public ActionResult CreateCategory(/*[FromBody]*/ CategoryViewModel model)
+        public ActionResult CreateCategory(CategoryDto dto)
         {
-            var dto = new CategoryDto()
-            {
-                Name = model.Name,
-            };
             _categoryService.CreateCategory(dto);
 
             return Ok("Success");
         }
 
         [HttpPut("{id}")]
-        public ActionResult UpdateCategory(/*[FromBody]*/ CategoryViewModel model/*, [FromRoute] int id*/)
+        public ActionResult UpdateCategory(CategoryDto dto)
         {
-            var dto = new CategoryDto()
-            {
-                Id = model.Id,
-                //Id = id,
-                Name = model.Name,
-            };
 
             _categoryService.UpdateCategory(dto);
 
@@ -65,7 +50,7 @@ namespace ReadingList.API.Controllers
 
         [HttpDelete("{id}")]
 
-        public ActionResult DeleteCategory(/*[FromRoute]*/ int id)
+        public ActionResult DeleteCategory(int id)
         {
             _categoryService.DeleteCategory(id);
 

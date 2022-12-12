@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
-using ReadingList.API.Models;
+using ReadingList.Service.DataTransferObjects;
 
 namespace ReadingList.API.Validators
 {
-    public class CategoryValidator : AbstractValidator<CategoryViewModel>
+    public class CategoryValidator : AbstractValidator<CategoryDto>
     {
         public CategoryValidator()
         {

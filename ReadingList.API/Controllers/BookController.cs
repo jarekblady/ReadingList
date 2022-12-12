@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ReadingList.Service.DataTransferObjects;
-using ReadingList.API.Models;
 using ReadingList.Service.Services.BookService;
 
 namespace ReadingList.API.Controllers
@@ -17,14 +16,14 @@ namespace ReadingList.API.Controllers
 
 
         [HttpGet]
-        public ActionResult<IEnumerable<BookViewModel>> GetAllBook()
+        public ActionResult<IEnumerable<BookDto>> GetAllBook()
         {
 
             return Ok(_bookService.GetAllBook());
         }
 
         [HttpGet("{id}")]
-        public ActionResult<BookViewModel> GetBook(int id)
+        public ActionResult<BookDto> GetBook(int id)
         {
 
             return Ok(_bookService.GetByIdBook(id));
@@ -32,16 +31,8 @@ namespace ReadingList.API.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateBook(BookViewModel model)
+        public ActionResult CreateBook(BookDto dto)
         {
-            var dto = new BookDto()
-            {
-                Title = model.Title,
-                Author = model.Author,
-                IsRead = model.IsRead,
-                Order = model.Order,
-                CategoryId = model.CategoryId,
-            };
             _bookService.CreateBook(dto);
             _bookService.UpdateOrderBy();
 
@@ -49,18 +40,8 @@ namespace ReadingList.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult UpdateBook(BookViewModel model)
+        public ActionResult UpdateBook(BookDto dto)
         {
-            var dto = new BookDto()
-            {
-                Id = model.Id,
-                //Id = id,
-                Title = model.Title,
-                Author = model.Author,
-                IsRead = model.IsRead,
-                Order = model.Order,
-                CategoryId = model.CategoryId,
-            };
 
             _bookService.UpdateBook(dto);
             _bookService.UpdateOrderBy();
