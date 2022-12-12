@@ -62,6 +62,11 @@ namespace ReadingList.Service.Services.BookService
             }
 
         }
-
+        public void UpdateIsRead(int id)
+        {
+            var book = _bookRepository.GetByIdBook(id);
+            book.IsRead = book.IsRead ? false : true;
+            _bookRepository.UpdateBook(_mapper.Map<Book>(book));
+        }
     }
 }

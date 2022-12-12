@@ -40,6 +40,17 @@ export class Book extends Component {
             })
         }
     }
+    changeIsRead(id) {
+        if (window.confirm('Are you sure?')) {
+            fetch('https://localhost:7187/api/book/IsRead/' + id, {
+                method: 'PUT',
+                header: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            })
+        }
+    }
 
 
 
@@ -84,6 +95,11 @@ export class Book extends Component {
                                             onClick={() => this.deleteBook(book.id)}
                                             variant="danger"
                                         >Delete</Button>
+
+                                        <Button className="mr-2"
+                                            onClick={() => this.changeIsRead(book.id)}
+                                            variant="success"
+                                        >IsRead</Button>
 
                                         <EditBookModal
                                             show={this.state.editModalShow}

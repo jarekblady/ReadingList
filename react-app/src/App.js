@@ -20,13 +20,13 @@ function App() {
                     Reading List
                 </h2>
 
-                <Navbar bg="secondary" variant="light">
+                <Navbar bg="dark" variant="dark">
                     <Container>
                         <Navbar.Brand href="/Home">ReadingList</Navbar.Brand>
                         <Nav className="justify-content-end flex-grow-1 pe-3">
-                            <Nav.Link className='btn btn-primary btn-outline-info' href="/Home">Home</Nav.Link>
-                            <Nav.Link className='btn btn-primary btn-outline-info' href="/Book">Book</Nav.Link>
-                            <Nav.Link className='btn btn-primary btn-outline-info' href="/Category">Category</Nav.Link>
+                            <Nav.Link href="/Home">Home</Nav.Link>
+                            <Nav.Link href="/Book">Book</Nav.Link>
+                            <Nav.Link href="/Category">Category</Nav.Link>
                         </Nav>
                     </Container>
                 </Navbar>

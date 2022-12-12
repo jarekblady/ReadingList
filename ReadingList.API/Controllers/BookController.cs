@@ -59,6 +59,13 @@ namespace ReadingList.API.Controllers
             return NoContent();
 
         }
+        [HttpPut("IsRead/{id}")]
+        public ActionResult UpdateIsRead(int id)
+        {
+            _bookService.UpdateIsRead(id);
+
+            return Ok("Success");
+        }
 
     }
 }
