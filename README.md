@@ -10,6 +10,11 @@
 ![Package Manager Console](https://github.com/jarekblady/ReadingList/blob/master/PackageManagerConsole.PNG)
 #### 4. In Package Manager Console run `update-database` command
 
+## Architecture
+
+#### Repository-Service pattern
+#### EF Core is used for connection with database
+#### Database (MS SQL Server)
 
 ## Database (MS SQL Server)
 ### Database Diagram
