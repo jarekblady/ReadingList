@@ -4,7 +4,10 @@ import { Modal, Button, Row, Col, Form } from 'react-bootstrap';
 export class EditCategoryModal extends Component {
     constructor(props) {
         super(props);
-
+        this.state = {
+            validationName: "",
+        };
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
 
@@ -23,16 +26,22 @@ export class EditCategoryModal extends Component {
         })
             .then(res => res.json())
             .then((result) => {
-                alert(result);
+                this.validation(result.errors)
             },
                 (error) => {
                     alert('Failed')
                 }
             )
     }
+    validation = (e) => {
+        this.setState({
+            validationName: e.Name !== undefined ? e.Name[0] : "",
 
+        })
+    }
 
     render() {
+        const { validationName} = this.state;
         return (
             <Modal
                 {...this.props}
@@ -57,7 +66,6 @@ export class EditCategoryModal extends Component {
                                         <Form.Control
                                             type="text"
                                             name="id"
-                                            required
                                             disabled
                                             defaultValue={this.props.id}
                                             placeholder="id"
@@ -69,10 +77,10 @@ export class EditCategoryModal extends Component {
                                         <Form.Control
                                             type="text"
                                             name="name"
-                                            required
                                             defaultValue={this.props.name}
                                             placeholder="name"
                                         />
+                                        <p class="text-danger">{validationName}</p>
                                     </Form.Group>
 
                                     <Form.Group>

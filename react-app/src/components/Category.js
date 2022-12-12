@@ -51,6 +51,7 @@ export class Category extends Component {
 
         
         return (
+
             <div>
                 <Table className="mt-4" striped bordered hover size="sm">
                     <thead>

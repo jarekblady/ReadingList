@@ -1,4 +1,8 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
+using ReadingList.API.Models;
+using ReadingList.API.Validators;
 using ReadingList.Repository;
 using ReadingList.Repository.Context;
 using ReadingList.Repository.Repositories.BookRepository;
@@ -41,7 +45,9 @@ builder.Services.AddCors(options =>
     .AllowAnyHeader()
     .AllowAnyMethod());
 });
-
+builder.Services.AddFluentValidationAutoValidation(conf =>{conf.DisableDataAnnotationsValidation = true;});
+builder.Services.AddScoped<IValidator<CategoryViewModel>, CategoryValidator>();
+builder.Services.AddScoped<IValidator<BookViewModel>, BookValidator>();
 
 
 var app = builder.Build();

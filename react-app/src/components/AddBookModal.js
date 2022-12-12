@@ -4,8 +4,14 @@ import { Modal, Button, Row, Col, Form } from 'react-bootstrap';
 export class AddBookModal extends Component {
     constructor(props) {
         super(props);
-        this.state = { categories: []};
-
+        this.state = {
+            categories: [],
+            validationTitle: "",
+            validationOrder: "",
+            validationAuthor: "",
+            validationCategory: "",
+        };
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
@@ -36,17 +42,28 @@ export class AddBookModal extends Component {
         })
             .then(res => res.json())
             .then((result) => {
-                alert(result);
+                this.validation(result.errors)
             },
                 (error) => {
                     alert('Failed')
                 }
             )
     }
+    validation = (e) => {
+        this.setState({
+            validationTitle: e.Title !== undefined ? e.Title[0] : "",
+            validationOrder: e.Order !== undefined ? e.Order[0] : "",
+            validationAuthor: e.Author !== undefined ? e.Author[0] : "",
+            validationCategory: e.CategoryId !== undefined ? e.CategoryId[0] : "",
+
+        })
+
+    }
 
 
 
     render() {
+        const { validationTitle, validationAuthor, validationOrder, validationCategory } = this.state;
         return (
             <Modal
                 {...this.props}
@@ -70,8 +87,9 @@ export class AddBookModal extends Component {
                                         <Form.Label>order</Form.Label>
                                         <Form.Control
                                             type="number"
-                                            required
+                                            defaultValue={0}
                                         />
+                                        <p class="text-danger">{validationOrder}</p>
                                     </Form.Group>
 
                                     <Form.Group controlId="title">
@@ -79,9 +97,9 @@ export class AddBookModal extends Component {
                                         <Form.Control
                                             type="text"
                                             name="title"
-                                            required
                                             placeholder="title"
                                         />
+                                        <p class="text-danger">{validationTitle}</p>
                                     </Form.Group>
 
                                     <Form.Group controlId="author">
@@ -89,9 +107,9 @@ export class AddBookModal extends Component {
                                         <Form.Control
                                             type="text"
                                             name="author"
-                                            required
                                             placeholder="author"
                                         />
+                                        <p class="text-danger">{validationAuthor}</p>
                                     </Form.Group>
 
                                     <Form.Group controlId="isRead">
@@ -105,13 +123,13 @@ export class AddBookModal extends Component {
                                     <Form.Group controlId="categoryId">
                                         <Form.Label>categoryId</Form.Label>
 
-                                        <Form.Control as="select" required>
-                                            <option value="" hidden>Select Category </option>
+                                        <Form.Control as="select">
+                                            <option value={0} hidden>Select Category </option>
                                             {this.state.categories.map(category =>
                                                 <option key={category.id} value={category.id}>{category.name}</option>
                                             )}
                                         </Form.Control>
-
+                                        <p class="text-danger">{validationCategory}</p>
                                     </Form.Group>
 
                                     <Form.Group>

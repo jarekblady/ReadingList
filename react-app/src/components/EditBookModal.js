@@ -4,7 +4,13 @@ import { Modal, Button, Row, Col, Form } from 'react-bootstrap';
 export class EditBookModal extends Component {
     constructor(props) {
         super(props);
-        this.state = { categories: []};
+        this.state = {
+            categories: [],
+            validationTitle: "",
+            validationOrder: "",
+            validationAuthor: "",
+        };
+        this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 
@@ -40,7 +46,7 @@ export class EditBookModal extends Component {
         })
             .then(res => res.json())
             .then((result) => {
-                alert(result);
+                this.validation(result.errors)
             },
                 (error) => {
                     alert('Failed')
@@ -48,9 +54,20 @@ export class EditBookModal extends Component {
             )
     }
 
+    validation = (e) => {
+        this.setState({
+            validationTitle: e.Title !== undefined ? e.Title[0] : "",
+            validationOrder: e.Order !== undefined ? e.Order[0] : "",
+            validationAuthor: e.Author !== undefined ? e.Author[0] : "",
+
+        })
+
+    }
+
 
 
     render() {
+        const { validationTitle, validationAuthor, validationOrder } = this.state;
         return (
             <Modal
                 {...this.props}
@@ -75,7 +92,6 @@ export class EditBookModal extends Component {
                                         <Form.Control
                                             type="text"
                                             name="id"
-                                            required
                                             disabled
                                             defaultValue={this.props.id}
                                             placeholder="id"
@@ -86,9 +102,9 @@ export class EditBookModal extends Component {
                                         <Form.Label>order</Form.Label>
                                         <Form.Control
                                             type="number"
-                                            required
                                             defaultValue={this.props.order}
                                         />
+                                        <p class="text-danger">{validationOrder}</p>
                                     </Form.Group>
 
                                     <Form.Group controlId="title">
@@ -96,10 +112,10 @@ export class EditBookModal extends Component {
                                         <Form.Control
                                             type="text"
                                             name="title"
-                                            required
                                             defaultValue={this.props.title}
                                             placeholder="title"
                                         />
+                                        <p class="text-danger">{validationTitle}</p>
                                     </Form.Group>
 
                                     <Form.Group controlId="author">
@@ -107,10 +123,10 @@ export class EditBookModal extends Component {
                                         <Form.Control
                                             type="text"
                                             name="author"
-                                            required
                                             defaultValue={this.props.author}
                                             placeholder="author"
                                         />
+                                        <p class="text-danger">{validationAuthor}</p>
                                     </Form.Group>
 
                                     <Form.Group controlId="isRead">

@@ -4,6 +4,10 @@ import { Modal, Button, Row, Col, Form } from 'react-bootstrap';
 export class AddCategoryModal extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            validationName: "",
+        };
+        this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 
@@ -21,17 +25,24 @@ export class AddCategoryModal extends Component {
         })
             .then(res => res.json())
             .then((result) => {
-                alert(result);
+                this.validation(result.errors)
             },
                 (error) => {
                     alert('Failed')
                 }
             )
     }
+    validation = (e) => {
+        this.setState({
+            validationName: e.Name !== undefined ? e.Name[0] : "",
+
+        })
+    }
 
 
 
     render() {
+        const { validationName } = this.state;
         return (
             <Modal
                 {...this.props}
@@ -55,9 +66,9 @@ export class AddCategoryModal extends Component {
                                         <Form.Control
                                             type="text"
                                             name="name"
-                                            required
                                         placeholder="name"
                                         />
+                                        <p class="text-danger">{validationName}</p>
                                     </Form.Group>
                                 
                                     <Form.Group>
