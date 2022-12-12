@@ -34,7 +34,6 @@ namespace ReadingList.API.Controllers
         public ActionResult CreateBook(BookDto dto)
         {
             _bookService.CreateBook(dto);
-            _bookService.UpdateOrderBy();
 
             return Ok("Success");
         }
@@ -42,9 +41,8 @@ namespace ReadingList.API.Controllers
         [HttpPut("{id}")]
         public ActionResult UpdateBook(BookDto dto)
         {
-
             _bookService.UpdateBook(dto);
-            _bookService.UpdateOrderBy();
+
             return Ok("Success");
         }
 
@@ -54,7 +52,6 @@ namespace ReadingList.API.Controllers
         public ActionResult DeleteBook(int id)
         {
             _bookService.DeleteBook(id);
-            _bookService.UpdateOrderBy();
 
             return NoContent();
 

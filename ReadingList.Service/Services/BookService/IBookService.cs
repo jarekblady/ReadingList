@@ -9,7 +9,6 @@ namespace ReadingList.Service.Services.BookService
         void CreateBook(BookDto dto);
         void UpdateBook(BookDto dto);
         void DeleteBook(int id);
-        void UpdateOrderBy();
         void UpdateIsRead(int id);
     }
 }
