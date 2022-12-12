@@ -19,6 +19,7 @@ namespace ReadingList.Repository.Repositories.BookRepository
             return _context.Books.Include(b => b.Category).OrderBy(b => b.Order).ToList();
         }
 
+
         public Book GetByIdBook(int id)
         {
             return _context.Books.Include(b => b.Category).FirstOrDefault(b => b.Id == id);

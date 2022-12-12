@@ -24,7 +24,7 @@ namespace ReadingList.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<BookViewModel> GetBook(/*[FromRoute]*/ int id)
+        public ActionResult<BookViewModel> GetBook(int id)
         {
 
             return Ok(_bookService.GetByIdBook(id));
@@ -32,7 +32,7 @@ namespace ReadingList.API.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateBook(/*[FromBody]*/ BookViewModel model)
+        public ActionResult CreateBook(BookViewModel model)
         {
             var dto = new BookDto()
             {
@@ -43,12 +43,13 @@ namespace ReadingList.API.Controllers
                 CategoryId = model.CategoryId,
             };
             _bookService.CreateBook(dto);
+            _bookService.UpdateOrderBy();
 
             return Ok("Success");
         }
 
         [HttpPut("{id}")]
-        public ActionResult UpdateBook(/*[FromBody]*/ BookViewModel model/*, [FromRoute] int id*/)
+        public ActionResult UpdateBook(BookViewModel model)
         {
             var dto = new BookDto()
             {
@@ -62,17 +63,17 @@ namespace ReadingList.API.Controllers
             };
 
             _bookService.UpdateBook(dto);
-
+            _bookService.UpdateOrderBy();
             return Ok("Success");
         }
 
 
         [HttpDelete("{id}")]
 
-        public ActionResult DeleteBook(/*[FromRoute]*/ int id)
+        public ActionResult DeleteBook(int id)
         {
             _bookService.DeleteBook(id);
-
+            _bookService.UpdateOrderBy();
 
             return NoContent();
 

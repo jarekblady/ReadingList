@@ -49,7 +49,19 @@ namespace ReadingList.Service.Services.BookService
             var book = _bookRepository.GetByIdBook(id);
             _bookRepository.DeleteBook(book);
         }
+        public void UpdateOrderBy()
+        {
+            var books = _bookRepository.GetAllBook();
+            var i = 1;
 
+            foreach (var book in books)
+            {
+                book.Order = i;
+                _bookRepository.UpdateBook(_mapper.Map<Book>(book));
+                i++;
+            }
+
+        }
 
     }
 }

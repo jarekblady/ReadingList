@@ -105,7 +105,7 @@ export class AddBookModal extends Component {
                                     <Form.Group controlId="categoryId">
                                         <Form.Label>categoryId</Form.Label>
 
-                                        <Form.Control as="select">
+                                        <Form.Control as="select" required>
                                             <option value="" hidden>Select Category </option>
                                             {this.state.categories.map(category =>
                                                 <option key={category.id} value={category.id}>{category.name}</option>

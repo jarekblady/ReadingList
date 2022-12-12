@@ -4,10 +4,11 @@ namespace ReadingList.Service.Services.BookService
 {
     public interface IBookService
     {
-        List<BookDto> GetAllBook();
+        List<BookDto> GetAllBook();     
         BookDto GetByIdBook(int id);
         void CreateBook(BookDto dto);
         void UpdateBook(BookDto dto);
         void DeleteBook(int id);
+        void UpdateOrderBy();
     }
 }
