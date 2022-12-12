@@ -7,7 +7,7 @@ export class EditBookModal extends Component {
         this.state = {
             categories: [],
             validationTitle: "",
-            validationOrder: "",
+            validationOrderList: "",
             validationAuthor: "",
         };
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,7 +34,7 @@ export class EditBookModal extends Component {
             },
             body: JSON.stringify({
                 id: event.target.id.value,
-                order: event.target.order.value,
+                orderList: event.target.orderList.value,
                 title: event.target.title.value,
                 author: event.target.author.value,
                 categoryId: event.target.categoryId.value,
@@ -57,7 +57,7 @@ export class EditBookModal extends Component {
     validation = (e) => {
         this.setState({
             validationTitle: e.Title !== undefined ? e.Title[0] : "",
-            validationOrder: e.Order !== undefined ? e.Order[0] : "",
+            validationOrderList: e.OrderList !== undefined ? e.OrderList[0] : "",
             validationAuthor: e.Author !== undefined ? e.Author[0] : "",
 
         })
@@ -67,7 +67,7 @@ export class EditBookModal extends Component {
 
 
     render() {
-        const { validationTitle, validationAuthor, validationOrder } = this.state;
+        const { validationTitle, validationAuthor, validationOrderList } = this.state;
         return (
             <Modal
                 {...this.props}
@@ -98,13 +98,13 @@ export class EditBookModal extends Component {
                                         />
                                     </Form.Group>
 
-                                    <Form.Group controlId="order">
-                                        <Form.Label>order</Form.Label>
+                                    <Form.Group controlId="orderList">
+                                        <Form.Label>orderList</Form.Label>
                                         <Form.Control
                                             type="number"
-                                            defaultValue={this.props.order}
+                                            defaultValue={this.props.orderlist}
                                         />
-                                        <p class="text-danger">{validationOrder}</p>
+                                        <p class="text-danger">{validationOrderList}</p>
                                     </Form.Group>
 
                                     <Form.Group controlId="title">

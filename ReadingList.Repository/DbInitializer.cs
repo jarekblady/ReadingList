@@ -33,11 +33,11 @@ namespace ReadingList.Repository
 
             var books = new Book[]
             {
-            new Book{Title="Lord of the Rings", Author="J.R.R. Tolkien", IsRead=false, Order=1, CategoryId=1},
-            new Book{Title="Diuna", Author="Frank Herbert", IsRead=false, Order=2, CategoryId=2},
-            new Book{Title="Jurassic Park", Author="Michael Crichton", IsRead=false, Order=3, CategoryId=1},
-            new Book{Title="The Witcher", Author="Andrzej Sapkowski", IsRead=false, Order=4, CategoryId=1},
-            new Book{Title="Player One", Author="Ernest Cline", IsRead=false, Order=5, CategoryId=2}
+            new Book{Title="Lord of the Rings", Author="J.R.R. Tolkien", IsRead=false, OrderList=1, CategoryId=1},
+            new Book{Title="Diuna", Author="Frank Herbert", IsRead=false, OrderList=2, CategoryId=2},
+            new Book{Title="Jurassic Park", Author="Michael Crichton", IsRead=false, OrderList=3, CategoryId=1},
+            new Book{Title="The Witcher", Author="Andrzej Sapkowski", IsRead=false, OrderList=4, CategoryId=1},
+            new Book{Title="Player One", Author="Ernest Cline", IsRead=false, OrderList=5, CategoryId=2}
 
             };
             foreach (Book b in books)

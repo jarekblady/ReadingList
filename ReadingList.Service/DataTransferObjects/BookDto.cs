@@ -6,7 +6,7 @@
         public string Title { get; set; }
         public string Author { get; set; }
         public bool IsRead { get; set; }
-        public int Order { get; set; }
+        public int OrderList { get; set; }
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
     }

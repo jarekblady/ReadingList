@@ -13,7 +13,7 @@ namespace ReadingList.API.Validators
             RuleFor(x => x.Author)
                 .NotEmpty().WithMessage("Author is required")
                 .MaximumLength(25).WithMessage("Maximum Length: 25 characters");
-            RuleFor(x => x.Order)
+            RuleFor(x => x.OrderList)
                 .GreaterThan(0).WithMessage("Order must be greater than 0");
             RuleFor(x => x.CategoryId)
                 .GreaterThan(0).WithMessage("Category is required");

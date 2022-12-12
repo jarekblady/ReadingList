@@ -16,7 +16,7 @@ namespace ReadingList.Repository.Repositories.BookRepository
         public List<Book> GetAllBook()
         {
 
-            return _context.Books.Include(b => b.Category).OrderBy(b => b.Order).ToList();
+            return _context.Books.Include(b => b.Category).OrderBy(b => b.OrderList).ToList();
         }
 
 

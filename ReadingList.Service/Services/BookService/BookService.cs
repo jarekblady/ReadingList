@@ -56,7 +56,7 @@ namespace ReadingList.Service.Services.BookService
 
             foreach (var book in books)
             {
-                book.Order = i;
+                book.OrderList = i;
                 _bookRepository.UpdateBook(_mapper.Map<Book>(book));
                 i++;
             }
