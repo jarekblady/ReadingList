@@ -1,6 +1,9 @@
 # ReadingList
 
-#### This app allows you to create your own reading list.
+#### This app allows you to create your own reading list. 
+#### The user can add, edit and remove the book.
+#### The user has the option to mark the book as read.
+#### The user can reorder the books.
 
 ## Configuration
 #### 1. In the first step, change "ConnectionStrings" in [appsettings.json](https://github.com/jarekblady/ReadingList/blob/master/ReadingList.API/appsettings.json)
