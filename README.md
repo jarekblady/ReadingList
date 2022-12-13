@@ -12,8 +12,12 @@
 
 ## Architecture
 
-#### Repository-Service pattern
-#### EF Core is used for connection with database
+#### Layers od Solution: API, Service, Repository, react-app. 
+#### EF Core is used for connection with database.
+#### Repository-Service pattern divides the business layer into two layers: Repository and Service.
+#### Repository handles getting data into and out of database.
+#### Fluent Validation is used for validation.
+#### Mapping a DTO to an Entity with Automapper.
 #### Database (MS SQL Server)
 
 ## Database (MS SQL Server)
