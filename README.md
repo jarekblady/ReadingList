@@ -12,6 +12,10 @@
 #### 3. In Package Manager Console change Default project as `ReadingList.API`.
 ![Package Manager Console](https://github.com/jarekblady/ReadingList/blob/master/PackageManagerConsole.PNG)
 #### 4. In Package Manager Console run `update-database` command
+#### 5. Now you can start `ReadingList.API`.
+#### 6. In Visual Studio Code you open `react-app`.
+#### 7. In Terminal run `npm install` command.
+#### 8. In Terminal run `npm start` command.
 
 ## Architecture
 
